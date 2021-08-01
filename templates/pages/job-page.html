@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %} | {{job.designation}}{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+
+<style>
+    .icon-md {
+  width: 60px;
+  height: 60px;
+  line-height: 60px !important;
+  font-size: 28px;
+  display: inline-block;
+  text-align: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+</style>
+
+<section class="container">
+
+
+    <div><h1 class="display-5 d-flex justify-content-center mt-3">{{jobInfo.job}}</h1><hr></div>
+    
+    
+
+    
+    {% if jobInfo.description %}
+    <div class="d-flex">
+        <h4>Job Description : </h4>
+    </div>
+
+    <p>{{jobInfo.description}}</p>
+    {% else %}
+
+    
+    {% endif %}
+    
+
+    {% if jobInfo.certification %}
+    <div class="d-flex">
+        <h4>Certification : </h4>
+    </div>
+
+    <p>{{jobInfo.certification}}</p>
+    {% else %}
+    {% endif %}
+
+    <section class="section-content padding-y bg">
+    <div class="container">
+    
+    <!-- ============================ COMPONENT 1 ================================= -->
+    <div class="row d-flex justify-content-center" style="margin-bottom: 2rem; margin-top: 2rem;">
+    <div class="col-md-3">
+        <article class="card card-body">
+            <figure class="text-center">
+                <span class="rounded-circle icon-md bg-secondary"><i class="fal fa-money-bill text-white"></i></span>
+                <figcaption class="pt-4">
+                <h5 class="title">Salary</h5>
+                <p>{{jobInfo.salary}}</p>
+                </figcaption>
+            </figure> <!-- iconbox // -->
+        </article> <!-- panel-lg.// -->
+    </div><!-- col // -->
+    <div class="col-md-3">
+        <article class="card card-body">
+            <figure class="text-center">
+                <span class="rounded-circle icon-md bg-danger"><i class="fa fa-truck text-white"></i></span>
+                <figcaption class="pt-4">
+                <h5 class="title">Industry</h5>
+                <p>{{jobInfo.industry}} </p>
+                </figcaption>
+            </figure> <!-- iconbox // -->
+        </article> <!-- panel-lg.// -->
+    </div> <!-- col // -->
+
+    <div class="col-md-3">
+        <article class="card card-body">
+            <figure class="text-center">
+                <span class="rounded-circle icon-md bg-primary"><i class="far fa-clock text-white"></i></span>
+                <figcaption class="pt-4">
+                <h5 class="title">Employment Time</h5>
+                <p>{{jobInfo.employment_time}} </p>
+                </figcaption>
+            </figure> <!-- iconbox // -->
+        </article> <!-- panel-lg.// -->
+    </div> <!-- col // -->
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <a class="btn-lg mt-4" style="
+          background-color: #fc9842;
+  background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);
+  border: none;
+  user-select: none;
+  color: white;
+        " href="{% url 'apply' job.slug %}" type="button"><span class="d-flex align-items-center justify-content-center">Apply Now</span></a>
+        </div>
+    </div>
+
+
+</section>
+
+
+{% endblock %}

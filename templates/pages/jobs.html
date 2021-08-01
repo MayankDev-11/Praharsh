@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Jobs{% endblock %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/jobs.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+
+  <section class="hero">
+    <div class="container-table100">
+        <div class="hero__image">
+
+            <img src="{% static 'img/notebook.jpg' %}" class="mt-2" alt=""
+            style="height:500px"
+            >
+
+        </div>
+        
+        <div class="hero__text container--pall">
+          <h1>
+            Next generation digital banking
+          </h1>
+          <p>
+            Take your financial life online. Your Easybank account will be a one-stop-shop 
+      for spending, saving, budgeting, investing, and much more.
+          </p>
+          <div class="text-center">
+<div class="d-grid gap-2 col-6 mx-auto">
+    <a href="#designations" class="btn rounded-pill" style="background-color: #fc9842;
+    background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);color: #fff;">Find Jobs</a>
+
+    </div>
+</div>
+
+          </div>
+
+        </div>
+    </div>
+  </section>
+
+
+  
+<div class="limiter" id="designations">
+    <div class="container-table100">
+        <div class="wrap-table100">
+                <div class="table">
+
+                    <div class="row header">
+                        <div class="cell">
+                            Designation
+                        </div>
+
+                        <div class="cell">
+                            Location
+                        </div>
+
+                        <div class="cell">
+                            Posted Date
+                        </div>
+
+                    </div>
+
+                    {% for job in jobs %}
+                    <div class="row">
+                        {% if job.is_active %}
+
+                        <a href="/job/{{job.slug}}" class="cell" data-title="Designation">
+                            <i class="fa fa-briefcase"></i>{{job.designation}}
+                        </a>
+                        <a href="/job/{{job.slug}}" class="cell" data-title="Location">
+                            <i class="fas fa-map-marker-alt"></i>{{job.location}}
+                        </a>
+                        <a href="/job/{{job.slug}}" class="cell" data-title="Posted Date">
+                            <i class="far fa-clock"></i> {{job.yearpublished}}
+                        </a>
+                        {% endif %}
+
+                    </div>
+                    {% endfor %}
+
+                </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+</script>
+
+
+{% endblock %}

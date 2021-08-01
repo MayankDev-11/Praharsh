@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} | Apply{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/apply.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+    <div class="wrapper wrapper--w960">
+        <div class="card card-2">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">Registration Info</h2>
+
+
+                <form method="POST" action="{% url 'apply' job.slug %}">
+                    {% csrf_token %}
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                        <input class="input--style-2" type="text" placeholder="First Name" name="first_name">
+                    </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="input-group">
+
+                        <input class="input--style-2" type="text" placeholder="Last Name" name="last_name">
+                    </div>
+
+                    </div>
+                    </div>
+
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2" type="number" placeholder="Mobile Number" name="phone">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2" type="email" placeholder="Email" name="email">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row row-space">
+
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="City" name="city">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label for="img" class="mb-2 h6">Resume</label>
+                                <input type="file" name="image" class="" accept=".pdf,.doc,image/*">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <select class="form-select form-select-lg mb-3" name="experience">
+                                <option selected>Experience</option>
+                                <option value="Fresher">Fresher</option>
+                                <option value="1 Year<">1 Year</option>
+                                <option value="2 Years">2 Years</option>
+                                <option value="3 Years">3 Years</option>
+                                <option value="4 Years">4 Years</option>
+                                <option value="5 Years">5 Years</option>
+                                <option value="6 Years">6 Years</option>
+                                <option value="7 Years">7 Years</option>
+                                <option value="8 Years">8 Years</option>
+                                <option value="9 Years">9 Years</option>
+                                <option value="10 Years">10 Years</option>
+                                <option value="11 Years">11 Years</option>
+                                <option value="12 Years">12 Years</option>
+                                <option value="13 Years">13 Years</option>
+                                <option value="14 Years">14 Years</option>
+                                <option value="15 Years">15 Years</option>
+                                <option value="16 Years">16 Years</option>
+                                <option value="17 Years">17 Years</option>
+                                <option value="18 Years">18 Years</option>
+                                <option value="19 Years">19 Years</option>
+                                <option value="20 Years">20 Years</option>
+                                <option value="21 Years">21 Years</option>
+                                <option value="22 Years">22 Years</option>
+                                <option value="23 Years">23 Years</option>
+                                <option value="24 Years">24 Years</option>
+                                <option value="25 Years">25 Years</option>
+                                <option value="26 Years">26 Years</option>
+                                <option value="27 Years">27 Years</option>
+                                <option value="28 Years">28 Years</option>
+                                <option value="29 Years">29 Years</option>
+                                <option value="30 Years">30 Years</option>
+                              </select>
+                        </div>
+                        <textarea name="description" id="" cols="5" rows="9" placeholder="Desired profile, skills, summary" style="resize:none;" name="description"></textarea>
+                    </div>
+
+                        
+                        
+
+                    <div class="p-t-30">
+                        <button class="btn btn--radius btn--green" type="submit">Search</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
